@@ -118,7 +118,14 @@
             "description": "<p>The id of MSP(Membership Service Provider) representing the organization to which the user belongs</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"Gilbert\",\n  \"password\": \"XYIfTbJKTWLU\",\n  \"caServer\": \"ca.org1.example.com\",\n  \"mspId\": \"Org1MSP\"\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -138,7 +145,14 @@
             "description": "<p>Explain the result of processing a request</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"status\": true,\n  \"message\": \"the user whose id is Gilbert is enrolled successfully\"\n}",
+          "type": "json"
+        }
+      ]
     },
     "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-enroll-user.js",
     "groupTitle": "MSP"
@@ -183,7 +197,14 @@
             "description": "<p>The id of the registrar who is calling this API.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"Gilbert\",\n  \"affiliation\": \"org1.board\",\n  \"caServer\": \"ca.org1.example.com\",\n  \"registrarId\": \"admin\"\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -217,7 +238,14 @@
             "description": "<p>Password created by Fabric CA server</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"status\": true,\n  \"message\": \"the user whose id is Gilbert is registered successfully\",\n  \"userId\": \"Gilbert\",\n  \"password\": \"XYIfTbJKTWLU\"\n}",
+          "type": "json"
+        }
+      ]
     },
     "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-register-user.js",
     "groupTitle": "MSP"

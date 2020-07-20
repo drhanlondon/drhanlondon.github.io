@@ -39,7 +39,14 @@
             "description": "<p>The id of MSP(Membership Service Provider) representing the organization to which the registrar belongs</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n   \"registrarId\": \"admin\",\n   \"password\": \"adminpw\",\n   \"caServer\": \"ca.org1.example.com\",\n   \"mspId\": \"Org1MSP\"\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -59,9 +66,16 @@
             "description": "<p>Explain the result of processing a request</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"status\": true,\n  \"message\": \"the registrar whose id is admin is enrolled successfully\"\n}",
+          "type": "json"
+        }
+      ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-register-enroll.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-enroll-registrar.js",
     "groupTitle": "MSP"
   },
   {
@@ -126,7 +140,7 @@
         ]
       }
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-register-enroll.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-enroll-user.js",
     "groupTitle": "MSP"
   },
   {
@@ -205,7 +219,7 @@
         ]
       }
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-register-enroll.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-register-user.js",
     "groupTitle": "MSP"
   }
 ]

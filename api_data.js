@@ -1,7 +1,93 @@
 define({ "api": [
   {
     "type": "post",
-    "url": "/fabric/testnet/msp/enrollRegistrar",
+    "url": "/fabric/testnet/v2.x/chaincode/sendTransaction",
+    "title": "Send a transaction",
+    "description": "<p>Send a transaction to a chaincode deployed on a application channel.</p>",
+    "name": "sendTransaction",
+    "group": "Chaincode",
+    "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>user who is sending a new transaction</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfile",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelName",
+            "description": "<p>a channel to which chaincode is deployed</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "chaincodeId",
+            "description": "<p>chaincode id which was decided when it was deployed to a channel by command line interface</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "functionName",
+            "description": "<p>function to be invoked</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "functionArgs",
+            "description": "<p>arguments to be passed to the function</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Explain the result of processing a request</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "payload",
+            "description": "<p>transaction response</p>"
+          }
+        ]
+      }
+    },
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/v2.x/chaincode/testnet-chaincode-send-transaction.js",
+    "groupTitle": "Chaincode"
+  },
+  {
+    "type": "post",
+    "url": "/fabric/testnet/v2.x/msp/enrollRegistrar",
     "title": "Enroll the registrar",
     "description": "<p>Enroll the registrar who is responsbile for issuing users' identity certificate. Only the registrar can call this API. The id and password of the registrar are already registered when Fabric CA server is launched.</p>",
     "name": "enrollRegistrar",
@@ -75,12 +161,12 @@ define({ "api": [
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-enroll-registrar.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/v2.x/msp/testnet-msp-enroll-registrar.js",
     "groupTitle": "MSP"
   },
   {
     "type": "post",
-    "url": "/fabric/testnet/msp/enrollUser",
+    "url": "/fabric/testnet/v2.x/msp/enrollUser",
     "title": "Enroll a user",
     "description": "<p>Enroll a user who is already registered to Fabric CA server.</p>",
     "name": "enrollUser",
@@ -154,12 +240,12 @@ define({ "api": [
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-enroll-user.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/v2.x/msp/testnet-msp-enroll-user.js",
     "groupTitle": "MSP"
   },
   {
     "type": "post",
-    "url": "/fabric/testnet/msp/registerUser",
+    "url": "/fabric/testnet/v2.x/msp/registerUser",
     "title": "Register a user",
     "description": "<p>Register a user to Fabric CA server. Only the registrar can call this API to register the user. Then the server will create a password for the user. The registrar needs to pass securely the registered Id and password to the user.</p>",
     "name": "registerUser",
@@ -247,7 +333,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-register-user.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/v2.x/msp/testnet-msp-register-user.js",
     "groupTitle": "MSP"
   }
 ] });

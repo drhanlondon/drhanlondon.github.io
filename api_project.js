@@ -1,6 +1,6 @@
 define({
   "title": "Custom apiDoc browser title",
-  "url": "localhost",
+  "url": "http//localhost:3000",
   "name": "overledger-dlt-hyperledger-fabric-connector",
   "version": "0.1.1",
   "description": "Building RESTful server which will work as a client node which will access peer nodes and orderer nodes in Hyperledger Fabric blockchain network",
@@ -9,7 +9,7 @@ define({
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2020-07-22T10:23:52.110Z",
+    "time": "2020-07-22T10:26:49.283Z",
     "url": "http://apidocjs.com",
     "version": "0.24.0"
   }

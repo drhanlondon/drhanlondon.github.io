@@ -1,6 +1,92 @@
 [
   {
     "type": "post",
+    "url": "/fabric/testnet/v2.x/chaincode/queryTransaction",
+    "title": "Query a transaction",
+    "description": "<p>Query a transaction to see the result after sending a transaction.</p>",
+    "name": "queryTransaction",
+    "group": "Chaincode",
+    "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>user who is queryingtransaction</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfile",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelName",
+            "description": "<p>a channel to which chaincode is deployed</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "chaincodeId",
+            "description": "<p>chaincode id which was decided when it was deployed to a channel by command line interface</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "functionName",
+            "description": "<p>function to be invoked</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "functionArgs",
+            "description": "<p>arguments to be passed to the function</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Explain the result of processing a request</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "payload",
+            "description": "<p>transaction response</p>"
+          }
+        ]
+      }
+    },
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/v2.x/chaincode/testnet-chaincode-query-transaction.js",
+    "groupTitle": "Chaincode"
+  },
+  {
+    "type": "post",
     "url": "/fabric/testnet/v2.x/chaincode/sendTransaction",
     "title": "Send a transaction",
     "description": "<p>Send a transaction to a chaincode deployed on a application channel.</p>",

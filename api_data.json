@@ -15,7 +15,7 @@
             "type": "String",
             "optional": false,
             "field": "userId",
-            "description": "<p>user who is queryingtransaction</p>"
+            "description": "<p>user who is querying a transaction</p>"
           },
           {
             "group": "Parameter",
@@ -43,7 +43,7 @@
             "type": "String",
             "optional": false,
             "field": "functionName",
-            "description": "<p>function to be invoked</p>"
+            "description": "<p>function to be queried</p>"
           },
           {
             "group": "Parameter",

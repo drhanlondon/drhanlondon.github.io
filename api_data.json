@@ -53,7 +53,14 @@
             "description": "<p>arguments to be passed to the function</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"gilbert\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"mychannel\",\n  \"chaincodeId\": \"businessloan\",\n  \"functionName\": \"QueryMetaToken\",\n  \"functionArgs\": [\"tesco\",\"TES1\"]\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -80,7 +87,14 @@
             "description": "<p>transaction response</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"status\": true,\n  \"message\": \"the function QueryMetaToken has been successfully queried\",\n  \"payload\": {\n      \"docType\": \"loanType3\",\n      \"issuer\": \"tesco\",\n      \"tokenName\": \"TES1\",\n      \"denomination\": \"GBP\",\n      \"amountToBorrow\": 1000,\n      \"totalTokensToIssue\": 10,\n      \"faceValue\": 100,\n      \"interestRate\": 10,\n      \"issuingPeriod\": 3,\n      \"maturityPeriod\": 12,\n      \"tokensOwned\": 0,\n      \"tokensTrading\": 0,\n      \"tokensRedeemed\": 0,\n      \"tokensBurnt\": 0,\n      \"erc20ContractAddress\": \"0xERC20Addresss\",\n      \"issuerEtherAddres\": \"0xTescoEtherAddress\",\n      \"onMarket\": false\n  }\n}",
+          "type": "json"
+        }
+      ]
     },
     "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/chaincode/testnet-chaincode-query-transaction.js",
     "groupTitle": "Chaincode"
@@ -139,7 +153,14 @@
             "description": "<p>arguments to be passed to the function</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"gilbert\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"mychannel\",\n  \"chaincodeId\": \"businessloan\",\n  \"functionName\": \"InitMetaToken\",\n  \"functionArgs\": [\"loanType3\", \"tesco\",\"TES1\",\"GBP\",\"1000.0\", \"10\", \"10.00\", \"3\", \"12\", \"0xERC20Addresss\", \"0xTescoEtherAddress\"]\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -166,7 +187,14 @@
             "description": "<p>transaction response</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"status\": true,\n  \"message\": \"the function InitMetaToken has been successfully invoked\",\n  \"payload\": \"\",\n  \"transactionId\": \"df34662eed4cac51b3dd987eec7ece58bdba994383521d3f2c45121237c1a749\"\n}",
+          "type": "json"
+        }
+      ]
     },
     "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/chaincode/testnet-chaincode-send-transaction.js",
     "groupTitle": "Chaincode"

@@ -21,7 +21,7 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "connectionProfile",
+            "field": "connectionProfileJSON",
             "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
           },
           {
@@ -82,7 +82,7 @@
         ]
       }
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/v2.x/chaincode/testnet-chaincode-query-transaction.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/chaincode/testnet-chaincode-query-transaction.js",
     "groupTitle": "Chaincode"
   },
   {
@@ -107,7 +107,7 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "connectionProfile",
+            "field": "connectionProfileJSON",
             "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
           },
           {
@@ -168,7 +168,7 @@
         ]
       }
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/v2.x/chaincode/testnet-chaincode-send-transaction.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/chaincode/testnet-chaincode-send-transaction.js",
     "groupTitle": "Chaincode"
   },
   {
@@ -209,13 +209,20 @@
             "optional": false,
             "field": "mspId",
             "description": "<p>The id of MSP(Membership Service Provider) representing the organization to which the registrar belongs</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n   \"registrarId\": \"admin\",\n   \"password\": \"adminpw\",\n   \"caServer\": \"ca.org1.example.com\",\n   \"mspId\": \"Org1MSP\"\n}",
+          "content": "{\n   \"registrarId\": \"admin\",\n   \"password\": \"adminpw\",\n   \"caServer\": \"ca.org1.example.com\",\n   \"mspId\": \"Org1MSP\",\n   \"connectionProfileJSON\": \"connection-org1.json\"\n}",
           "type": "json"
         }
       ]
@@ -247,7 +254,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/v2.x/msp/testnet-msp-enroll-registrar.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-enroll-registrar.js",
     "groupTitle": "MSP"
   },
   {
@@ -288,13 +295,20 @@
             "optional": false,
             "field": "mspId",
             "description": "<p>The id of MSP(Membership Service Provider) representing the organization to which the user belongs</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"Gilbert\",\n  \"password\": \"XYIfTbJKTWLU\",\n  \"caServer\": \"ca.org1.example.com\",\n  \"mspId\": \"Org1MSP\"\n}",
+          "content": "{\n  \"userId\": \"Gilbert\",\n  \"password\": \"XYIfTbJKTWLU\",\n  \"caServer\": \"ca.org1.example.com\",\n  \"mspId\": \"Org1MSP\",\n   \"connectionProfileJSON\": \"connection-org1.json\"\n}",
           "type": "json"
         }
       ]
@@ -326,7 +340,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/v2.x/msp/testnet-msp-enroll-user.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-enroll-user.js",
     "groupTitle": "MSP"
   },
   {
@@ -367,13 +381,20 @@
             "optional": false,
             "field": "registrarId",
             "description": "<p>The id of the registrar who is calling this API.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"Gilbert\",\n  \"affiliation\": \"org1.board\",\n  \"caServer\": \"ca.org1.example.com\",\n  \"registrarId\": \"admin\"\n}",
+          "content": "{\n  \"userId\": \"Gilbert\",\n  \"affiliation\": \"org1.board\",\n  \"caServer\": \"ca.org1.example.com\",\n  \"registrarId\": \"admin\",\n   \"connectionProfileJSON\": \"connection-org1.json\"\n}",
           "type": "json"
         }
       ]
@@ -419,7 +440,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/v2.x/msp/testnet-msp-register-user.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-register-user.js",
     "groupTitle": "MSP"
   }
 ]

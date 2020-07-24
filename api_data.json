@@ -373,6 +373,64 @@
   },
   {
     "type": "post",
+    "url": "/fabric/testnet/v2.x/msp/exportIdentity",
+    "title": "Export an identity",
+    "description": "<p>Export an identity from the wallet</p>",
+    "name": "exportIdentity",
+    "group": "MSP",
+    "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>userID to be exported from the wallet</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"gilbert\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "payload",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n   \"status\": true,\n   \"payload\": {\n      \"credentials\": {\n          \"certificate\": \"-----BEGIN CERTIFICATE-----\\nMIICTTCCAfOgAwIBAgIUf0rLHgRqevSJOd665Orn3sznEDEwCgYIKoZIzj0EAwIw\\ncDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMQ8wDQYDVQQH\\nEwZEdXJoYW0xGTAXBgNVBAoTEG9yZzEuZXhhbXBsZS5jb20xHDAaBgNVBAMTE2Nh\\nLm9yZzEuZXhhbXBsZS5jb20wHhcNMjAwNzIzMTU1NzAwWhcNMjEwNzIzMTYwMjAw\\nWjAgMQ8wDQYDVQQLEwZjbGllbnQxDTALBgNVBAMTBGNob2kwWTATBgcqhkjOPQIB\\nBggqhkjOPQMBBwNCAARh4nOrNltzuIzFG6SDWYKgPNj5bxWYBfNvlGPoT905X1Ks\\n94M28ltMQpAaSLgSLNk9Qq8+2YrOLiv/6Orb0NLto4G6MIG3MA4GA1UdDwEB/wQE\\nAwIHgDAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBTZGKEww4xXEpm89DJ7VPNAA6WJ\\nhjAfBgNVHSMEGDAWgBSlUfcE4QbhPer1Dc6EnqZs/84PCDBXBggqAwQFBgcIAQRL\\neyJhdHRycyI6eyJoZi5BZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6\\nImNob2kiLCJoZi5UeXBlIjoiY2xpZW50In19MAoGCCqGSM49BAMCA0gAMEUCIQDZ\\nAmzpSN1TZOeLzkxU4dlWDhcOisN+kcyYsvBmDyrlqwIgVH6XKrI2ZcLJo0XPxXxS\\na1IAWlcUS0rXu9CgRrhhwPA=\\n-----END CERTIFICATE-----\\n\",\n          \"privateKey\": \"-----BEGIN PRIVATE KEY-----\\r\\nMIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgJRg4fRYU4QRzTfqL\\r\\nMBXOBPQPIVaTIuIn9iwhFJcNmMWhRANCAARh4nOrNltzuIzFG6SDWYKgPNj5bxWY\\r\\nBfNvlGPoT905X1Ks94M28ltMQpAaSLgSLNk9Qq8+2YrOLiv/6Orb0NLt\\r\\n-----END PRIVATE KEY-----\\r\\n\"\n      },\n      \"mspId\": \"Org1MSP\",\n      \"type\": \"X.509\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-export-identity.js",
+    "groupTitle": "MSP"
+  },
+  {
+    "type": "post",
     "url": "/fabric/testnet/v2.x/msp/registerUser",
     "title": "Register a user",
     "description": "<p>Register a user to Fabric CA server. Only the registrar can call this API to register the user. Then the server will create a password for the user. The registrar needs to pass securely the registered Id and password to the user.</p>",

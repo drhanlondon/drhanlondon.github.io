@@ -452,7 +452,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "payload",
-            "description": "<p>list all user identities</p>"
+            "description": "<p>list all user identities in the wallet</p>"
           }
         ]
       },
@@ -565,6 +565,64 @@ define({ "api": [
       ]
     },
     "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-register-user.js",
+    "groupTitle": "MSP"
+  },
+  {
+    "type": "post",
+    "url": "/fabric/testnet/v2.x/msp/removeIdentity",
+    "title": "Remove an identity",
+    "description": "<p>Remove an identity from the wallet</p>",
+    "name": "removeIdentity",
+    "group": "MSP",
+    "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>userID to be removed from the wallet</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"gilbert\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>shows the result</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"status\": true,\n  \"message\": \"gilbert has been successfully removed from the wallet\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-remove-identity.js",
     "groupTitle": "MSP"
   }
 ] });

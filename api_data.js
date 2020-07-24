@@ -414,7 +414,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "payload",
-            "description": ""
+            "description": "<p>shows credentials, mspId and type</p>"
           }
         ]
       },
@@ -427,6 +427,44 @@ define({ "api": [
       ]
     },
     "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-export-identity.js",
+    "groupTitle": "MSP"
+  },
+  {
+    "type": "get",
+    "url": "/fabric/testnet/v2.x/msp/listIdentities",
+    "title": "List identities",
+    "description": "<p>Retrieve all identities from the wallet</p>",
+    "name": "listIdentities",
+    "group": "MSP",
+    "version": "0.1.1",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "payload",
+            "description": "<p>list all user identities</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"status\": true,\n  \"payload\": [\n      \"gilbert\",\n      \"luke\",\n      \"alex\"\n   ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-list-identities.js",
     "groupTitle": "MSP"
   },
   {

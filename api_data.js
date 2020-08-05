@@ -96,7 +96,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/chaincode/testnet-chaincode-query-transaction.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/chaincode/testnet-chaincode-query-transaction.js",
     "groupTitle": "Chaincode"
   },
   {
@@ -196,7 +196,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/chaincode/testnet-chaincode-send-transaction.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/chaincode/testnet-chaincode-send-transaction.js",
     "groupTitle": "Chaincode"
   },
   {
@@ -282,7 +282,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-enroll-registrar.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/msp/testnet-msp-enroll-registrar.js",
     "groupTitle": "MSP"
   },
   {
@@ -368,7 +368,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-enroll-user.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/msp/testnet-msp-enroll-user.js",
     "groupTitle": "MSP"
   },
   {
@@ -426,7 +426,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-export-identity.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/msp/testnet-msp-export-identity.js",
     "groupTitle": "MSP"
   },
   {
@@ -464,7 +464,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-list-identities.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/msp/testnet-msp-list-identities.js",
     "groupTitle": "MSP"
   },
   {
@@ -564,7 +564,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-register-user.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/msp/testnet-msp-register-user.js",
     "groupTitle": "MSP"
   },
   {
@@ -622,7 +622,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-connector/api/msp/testnet-msp-remove-identity.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/msp/testnet-msp-remove-identity.js",
     "groupTitle": "MSP"
   }
 ] });

@@ -617,5 +617,70 @@
     },
     "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-remove-identity.js",
     "groupTitle": "MSP"
+  },
+  {
+    "type": "post",
+    "url": "/fabric/testnet/v1.4x/msp/retrievePeerOrgAdminIdentity",
+    "title": "Retrieve the admin identity of a peer org",
+    "description": "<p>Retrieve the admin identity of a peer organization which was created when a Fabric testnetwork is deployed with crypto materials generated from crytogen tool</p>",
+    "name": "retrievePeerOrgAdminIdentity",
+    "group": "MSP",
+    "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "peerOrgDomainAddress",
+            "description": "<p>The domain address of the peer organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mspId",
+            "description": "<p>The id of MSP(Membership Service Provider) representing the organization</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"peerOrgDomainAddress\": \"org2.example.com\",\n  \"mspId\": \"Org2MSP\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Explain the result of processing a request</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"status\": true,\n  \"message\": \"The admin identity of org2.example.com is imported to the wallet successfully\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-retrieve-peerOrgAdminIdentity.js",
+    "groupTitle": "MSP"
   }
 ]

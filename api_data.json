@@ -96,7 +96,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/chaincode/testnet-chaincode-query-transaction.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/chaincode/testnet-chaincode-query-transaction.js",
     "groupTitle": "Chaincode"
   },
   {
@@ -196,12 +196,12 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/chaincode/testnet-chaincode-send-transaction.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/chaincode/testnet-chaincode-send-transaction.js",
     "groupTitle": "Chaincode"
   },
   {
     "type": "post",
-    "url": "/fabric/testnet/v2.x/msp/enrollRegistrar",
+    "url": "/fabric/testnet/v1.4x/msp/enrollRegistrar",
     "title": "Enroll the registrar",
     "description": "<p>Enroll the registrar who is responsbile for issuing users' identity certificate. Only the registrar can call this API. The id and password of the registrar are already registered when Fabric CA server is launched.</p>",
     "name": "enrollRegistrar",
@@ -282,12 +282,12 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/msp/testnet-msp-enroll-registrar.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-enroll-registrar.js",
     "groupTitle": "MSP"
   },
   {
     "type": "post",
-    "url": "/fabric/testnet/v2.x/msp/enrollUser",
+    "url": "/fabric/testnet/v1.4x/msp/enrollUser",
     "title": "Enroll a user",
     "description": "<p>Enroll a user who is already registered to Fabric CA server.</p>",
     "name": "enrollUser",
@@ -368,7 +368,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/msp/testnet-msp-enroll-user.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-enroll-user.js",
     "groupTitle": "MSP"
   },
   {
@@ -426,7 +426,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/msp/testnet-msp-export-identity.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-export-identity.js",
     "groupTitle": "MSP"
   },
   {
@@ -464,7 +464,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/msp/testnet-msp-list-identities.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-list-identities.js",
     "groupTitle": "MSP"
   },
   {
@@ -496,13 +496,6 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "caServer",
-            "description": "<p>The domain name of the organization to which a user belongs.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
             "field": "registrarId",
             "description": "<p>The id of the registrar who is calling this API.</p>"
           },
@@ -518,7 +511,7 @@
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"Gilbert\",\n  \"affiliation\": \"org1.board\",\n  \"caServer\": \"ca.org1.example.com\",\n  \"registrarId\": \"admin\",\n   \"connectionProfileJSON\": \"connection-org1.json\"\n}",
+          "content": "{\n  \"userId\": \"Gilbert\",\n  \"affiliation\": \"org1.department1\",\n  \"registrarId\": \"admin\",\n   \"connectionProfileJSON\": \"connection-org1.json\"\n}",
           "type": "json"
         }
       ]
@@ -564,7 +557,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/msp/testnet-msp-register-user.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-register-user.js",
     "groupTitle": "MSP"
   },
   {
@@ -622,7 +615,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-2.x-connector/api/msp/testnet-msp-remove-identity.js",
+    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-remove-identity.js",
     "groupTitle": "MSP"
   }
 ]

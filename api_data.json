@@ -57,7 +57,7 @@
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"gilbert\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"mychannel\",\n  \"chaincodeId\": \"businessloan\",\n  \"functionName\": \"QueryMetaToken\",\n  \"functionArgs\": [\"tesco\",\"TES1\"]\n}",
+          "content": "{\n  \"userId\": \"gilbert\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"mychannel\",\n  \"chaincodeId\": \"mycc\",\n  \"functionName\": \"query\",\n  \"functionArgs\": [\"a\"]\n}",
           "type": "json"
         }
       ]
@@ -91,7 +91,7 @@
       "examples": [
         {
           "title": "Response Body Example",
-          "content": "{\n  \"status\": true,\n  \"message\": \"the function QueryMetaToken has been successfully queried\",\n  \"payload\": {\n      \"docType\": \"loanType3\",\n      \"issuer\": \"tesco\",\n      \"tokenName\": \"TES1\",\n      \"denomination\": \"GBP\",\n      \"amountToBorrow\": 1000,\n      \"totalTokensToIssue\": 10,\n      \"faceValue\": 100,\n      \"interestRate\": 10,\n      \"issuingPeriod\": 3,\n      \"maturityPeriod\": 12,\n      \"tokensOwned\": 0,\n      \"tokensTrading\": 0,\n      \"tokensRedeemed\": 0,\n      \"tokensBurnt\": 0,\n      \"erc20ContractAddress\": \"0xERC20Addresss\",\n      \"issuerEtherAddres\": \"0xTescoEtherAddress\",\n      \"onMarket\": false\n  }\n}",
+          "content": "{\n  \"status\": true,\n  \"message\": \"the function query has been successfully queried\",\n  \"payload\": 85\n}",
           "type": "json"
         }
       ]
@@ -157,7 +157,7 @@
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"gilbert\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"mychannel\",\n  \"chaincodeId\": \"businessloan\",\n  \"functionName\": \"InitMetaToken\",\n  \"functionArgs\": [\"loanType3\", \"tesco\",\"TES1\",\"GBP\",\"1000.0\", \"10\", \"10.00\", \"3\", \"12\", \"0xERC20Addresss\", \"0xTescoEtherAddress\"]\n}",
+          "content": "{\n  \"userId\": \"gilbert\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"mychannel\",\n  \"chaincodeId\": \"mycc\",\n  \"functionName\": \"invoke\",\n  \"functionArgs\": [\"a\", \"b\", \"5\"]\n}",
           "type": "json"
         }
       ]
@@ -191,7 +191,7 @@
       "examples": [
         {
           "title": "Response Body Example",
-          "content": "{\n  \"status\": true,\n  \"message\": \"the function InitMetaToken has been successfully invoked\",\n  \"payload\": \"\",\n  \"transactionId\": \"df34662eed4cac51b3dd987eec7ece58bdba994383521d3f2c45121237c1a749\"\n}",
+          "content": "{\n  \"success\": true,\n  \"message\": \"the function invoke has been successfully invoked\",\n  \"payload\": \"\",\n  \"transactionId\": \"6b413aea5b704b98efad5c69c24e7a0c6a99fee6c6754a41bd38da4897f927d4\"\n}",
           "type": "json"
         }
       ]
@@ -373,7 +373,7 @@
   },
   {
     "type": "post",
-    "url": "/fabric/testnet/v2.x/msp/exportIdentity",
+    "url": "/fabric/testnet/v1.4x/msp/exportIdentity",
     "title": "Export an identity",
     "description": "<p>Export an identity from the wallet</p>",
     "name": "exportIdentity",

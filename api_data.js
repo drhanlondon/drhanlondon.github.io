@@ -291,7 +291,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Response Body Example",
-          "content": "{\n  \"currentChainHeight\": 4,\n  \"currentBlockHash\": \"149e2d0ef97f5b5b749a2a2dc0da1ece3aa4ab9d8b295eee55cda3a53aec2fdf\",\n  \"fullCurrentBlockHash\": \"08041220149e2d0ef97f5b5b749a2a2dc0da1ece3aa4ab9d8b295eee55cda3a53aec2fdf1a202b5537a80c54401611062f799cee9f8fd2be1cb464f121c7bc8e6f860e5c1c0a\",\n  \"channelInfo\": {\n      \"height\": {\n          \"low\": 4,\n          \"high\": 0,\n          \"unsigned\": true\n      },\n      \"currentBlockHash\": {\n          \"buffer\": {\n              \"type\": \"Buffer\",\n              \"data\": [ 8, 4, 18, 32, 20 ... ] \n          },\n          \"offset\": 4,\n          \"markedOffset\": -1,\n          \"limit\": 36,\n          \"littleEndian\": true,\n          \"noAssert\": false\n      },\n      \"previousBlockHash\": {\n          \"buffer\": {\n              \"type\": \"Buffer\",\n              \"data\": [8, 4, 18, 32, 20 , .... ]\n          },\n          \"offset\": 38,\n          \"markedOffset\": -1,\n          \"limit\": 70,\n          \"littleEndian\": true,\n          \"noAssert\": false\n      }\n  }\n}",
+          "content": "{\n  \"success\": true,\n  \"currentChainHeight\": 4,\n  \"currentBlockHash\": \"149e2d0ef97f5b5b749a2a2dc0da1ece3aa4ab9d8b295eee55cda3a53aec2fdf\",\n  \"fullCurrentBlockHash\": \"08041220149e2d0ef97f5b5b749a2a2dc0da1ece3aa4ab9d8b295eee55cda3a53aec2fdf1a202b5537a80c54401611062f799cee9f8fd2be1cb464f121c7bc8e6f860e5c1c0a\",\n  \"channelInfo\": {\n      \"height\": {\n          \"low\": 4,\n          \"high\": 0,\n          \"unsigned\": true\n      },\n      \"currentBlockHash\": {\n          \"buffer\": {\n              \"type\": \"Buffer\",\n              \"data\": [ 8, 4, 18, 32, 20 ... ] \n          },\n          \"offset\": 4,\n          \"markedOffset\": -1,\n          \"limit\": 36,\n          \"littleEndian\": true,\n          \"noAssert\": false\n      },\n      \"previousBlockHash\": {\n          \"buffer\": {\n              \"type\": \"Buffer\",\n              \"data\": [8, 4, 18, 32, 20 , .... ]\n          },\n          \"offset\": 38,\n          \"markedOffset\": -1,\n          \"limit\": 70,\n          \"littleEndian\": true,\n          \"noAssert\": false\n      }\n  }\n}",
           "type": "json"
         }
       ]
@@ -302,11 +302,79 @@ define({ "api": [
   {
     "type": "post",
     "url": "/fabric/testnet/v1.4x/channel/queryChannelForChaincodes",
-    "title": "Query instantiated chaincodes on a channel",
-    "description": "<p>Send a transaction to a chaincode deployed on a application channel.</p>",
+    "title": "Query chaincodes instantiated on a channel",
+    "description": "<p>Query chaincodes deployed on the requested channel and show the detailed info for the list of instantiated chaincodes.</p>",
     "name": "queryChannelForChaincodes",
     "group": "Channel",
     "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>user who is sending a query</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelName",
+            "description": "<p>channel to be queried</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mspId",
+            "description": "<p>organization msp id</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"samplechannel1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "instantiatedChaincodes",
+            "description": "<p>list of chaincodes instantiated on the requested channel</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"success\": true,\n  \"instantiatedChaincodes\": {\n      \"chaincodes\": [\n          {\n              \"name\": \"mycc\",\n              \"version\": \"1.0\",\n              \"path\": \"github.com/chaincode/chaincode_example02/go/\",\n              \"input\": \"\",\n              \"escc\": \"escc\",\n              \"vscc\": \"vscc\",\n              \"id\": {\n                  \"buffer\": {\n                      \"type\": \"Buffer\",\n                      \"data\": []\n                  },\n                  \"offset\": 0,\n                  \"markedOffset\": -1,\n                  \"limit\": 0,\n                  \"littleEndian\": false,\n                  \"noAssert\": false\n              }\n          }\n      ]\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
     "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-query-channelForChaincodes.js",
     "groupTitle": "Channel"
   },

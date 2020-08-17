@@ -442,7 +442,7 @@
             "type": "String",
             "optional": false,
             "field": "peerURL",
-            "description": "<p>and port number of te peer</p>"
+            "description": "<p>URL and port number of the peer</p>"
           },
           {
             "group": "Success 200",

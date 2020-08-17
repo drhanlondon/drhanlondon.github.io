@@ -103,7 +103,7 @@
     "type": "post",
     "url": "/fabric/testnet/v1.4x/chaincode/sendTransaction",
     "title": "Send a transaction",
-    "description": "<p>Send a transaction to a chaincode deployed on a application channel.</p>",
+    "description": "<p>Send a transaction to a chaincode deployed on an application channel.</p>",
     "name": "sendTransaction",
     "group": "Chaincode",
     "version": "0.1.1",

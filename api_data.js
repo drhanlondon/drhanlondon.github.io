@@ -673,10 +673,106 @@ define({ "api": [
     "type": "post",
     "url": "/fabric/testnet/v1.4x/ledger/queryGenesisBlock",
     "title": "Query the genesis block of a channel",
-    "description": "<p>Send a transaction to a chaincode deployed on a application channel.</p>",
+    "description": "<p>Query the genesis block of the given channel.</p>",
     "name": "queryGenesisBlock",
     "group": "Ledger",
     "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>user who is sending a query</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelName",
+            "description": "<p>channel to be queried</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mspId",
+            "description": "<p>organization msp id</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"samplechannel1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "blockNumber",
+            "description": "<p>number of the genesis block</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "blockHash",
+            "description": "<p>hash of the genesis block</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "dataHash",
+            "description": "<p>data hash of the latest block</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "numberOfTransactions",
+            "description": "<p>number of transactions in the latest block</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "transactions",
+            "description": "<p>list of transactions; a config transaction does not have a transaction id although it is counted</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n   \"success\": true,\n   \"blockNumber\": \"0\",\n   \"blockHash\": \"00fb49ff0e6b18f0818b6773c1c0dc3cd0c7845a6886eb551c01cace1ce1c116\",\n   \"numberOfTransactions\": 1,\n   \"transactions\": {\n       \"tx_0\": [\n           \"\",\n           \"OrdererMSP\"\n       ]\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
     "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-genesisBlock.js",
     "groupTitle": "Ledger"
   },

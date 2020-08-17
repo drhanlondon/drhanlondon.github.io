@@ -439,17 +439,17 @@
           },
           {
             "group": "Success 200",
-            "type": "peerURL",
+            "type": "String",
             "optional": false,
-            "field": "URL",
+            "field": "peerURL",
             "description": "<p>and port number of te peer</p>"
           },
           {
             "group": "Success 200",
-            "type": "chaincodesInstalled",
+            "type": "String",
             "optional": false,
-            "field": "list",
-            "description": "<p>of chaincodes installed on the peer</p>"
+            "field": "chaincodesInstalled",
+            "description": "<p>list of chaincodes installed on the peer</p>"
           }
         ]
       },

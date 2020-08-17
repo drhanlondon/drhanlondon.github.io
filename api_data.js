@@ -691,7 +691,7 @@ define({ "api": [
             "type": "Number",
             "optional": false,
             "field": "blockNumber",
-            "description": "<p>a number to be queried</p>"
+            "description": "<p>number to be queried</p>"
           }
         ]
       },
@@ -712,6 +712,13 @@ define({ "api": [
             "optional": false,
             "field": "success",
             "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "blockHash",
+            "description": "<p>A block hash is calculated by hashing over the concatenated ASN.1 encoded bytes of the block number, previous block hash, and current block data hash.</p>"
           },
           {
             "group": "Success 200",

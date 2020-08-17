@@ -443,6 +443,13 @@ define({ "api": [
             "optional": false,
             "field": "URL",
             "description": "<p>and port number of te peer</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "chaincodesInstalled",
+            "optional": false,
+            "field": "list",
+            "description": "<p>of chaincodes installed on the peer</p>"
           }
         ]
       },

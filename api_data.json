@@ -302,8 +302,8 @@
   {
     "type": "post",
     "url": "/fabric/testnet/v1.4x/channel/queryChannelForChaincodes",
-    "title": "Query chaincodes instantiated on a channel",
-    "description": "<p>Query chaincodes deployed on the requested channel and show the detailed info for the list of instantiated chaincodes.</p>",
+    "title": "Query instantiated chaincodes on a channel",
+    "description": "<p>Query chaincodes deployed and instantiated on the requested channel and show the detailed info for the list of instantiated chaincodes.</p>",
     "name": "queryChannelForChaincodes",
     "group": "Channel",
     "version": "0.1.1",
@@ -381,11 +381,79 @@
   {
     "type": "post",
     "url": "/fabric/testnet/v1.4x/channel/queryPeerForChaincodes",
-    "title": "Query installed chaincodes on a target peer node",
-    "description": "<p>Send a transaction to a chaincode deployed on a application channel.</p>",
+    "title": "Query installed chaincodes on a peer node",
+    "description": "<p>Query chaincodes installed on the target peer node. Only the admin of organization is allowed to call it.</p>",
     "name": "queryPeerForChaincodes",
     "group": "Channel",
     "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>user who is sending a query</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "peerDomainName",
+            "description": "<p>host and domain name of the peer</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mspId",
+            "description": "<p>organization msp id</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"Admin@org1.example.com\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"peerDomainName\": \"peer0.org1.example.com\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "peerURL",
+            "optional": false,
+            "field": "URL",
+            "description": "<p>and port number of te peer</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"success\": true,\n  \"peerURL\": \"grpcs://localhost:7051\",\n  \"chaincodeInstalled\": {\n      \"chaincodes\": [\n          {\n              \"name\": \"mycc\",\n              \"version\": \"1.0\",\n              \"path\": \"github.com/chaincode/chaincode_example02/go/\",\n              \"input\": \"\",\n              \"escc\": \"\",\n              \"vscc\": \"\",\n              \"id\": {\n                  \"buffer\": {\n                      \"type\": \"Buffer\",\n                      \"data\": [ 10, 91, 10, 4, ... ]\n                  },\n                  \"offset\": 61,\n                  \"markedOffset\": -1,\n                  \"limit\": 93,\n                  \"littleEndian\": true,\n                  \"noAssert\": false\n              }\n          },\n          {\n              \"name\": \"mysacc\",\n              \"version\": \"1\",\n              \"path\": \"github.com/chaincode/sacc\",\n              \"input\": \"\",\n              \"escc\": \"\",\n              \"vscc\": \"\",\n              \"id\": {\n                  \"buffer\": {\n                      \"type\": \"Buffer\",\n                      \"data\": [10, 91, 10 ,4, 109, .... ]\n                  },\n                  \"offset\": 135,\n                  \"markedOffset\": -1,\n                  \"limit\": 167,\n                  \"littleEndian\": true,\n                  \"noAssert\": false\n              }\n          }\n      ]\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
     "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-query-peerForChaincodes.js",
     "groupTitle": "Channel"
   },

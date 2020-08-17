@@ -684,10 +684,113 @@ define({ "api": [
     "type": "post",
     "url": "/fabric/testnet/v1.4x/ledger/queryLatestBlock",
     "title": "Query the latest block of a channel",
-    "description": "<p>Send a transaction to a chaincode deployed on a application channel.</p>",
+    "description": "<p>Query the lastest block of the given channel.</p>",
     "name": "queryLatestBlock",
     "group": "Ledger",
     "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>user who is sending a query</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelName",
+            "description": "<p>channel to be queried</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mspId",
+            "description": "<p>organization msp id</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"samplechannel1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "blockNumber",
+            "description": "<p>number of the latest block, which is the same as the block height minus one</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "blockHash",
+            "description": "<p>hash of the latest block</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "previousBlockHash",
+            "description": "<p>hash of the previous block</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "dataHash",
+            "description": "<p>data hash of the latest block</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "numberOfTransactions",
+            "description": "<p>number of transactions in the latest block</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "transactions",
+            "description": "<p>list of transactions</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"success\": true,\n  \"blockNumber\": \"3\",\n  \"blockHash\": \"149e2d0ef97f5b5b749a2a2dc0da1ece3aa4ab9d8b295eee55cda3a53aec2fdf\",\n  \"previousBlockHash\": \"2b5537a80c54401611062f799cee9f8fd2be1cb464f121c7bc8e6f860e5c1c0a\",\n  \"dataHash\": \"f87177d97b21b40753594e63a2c00354938d051903d98c4ce29e65469e288dd4\",\n  \"numberOfTransactions\": 1,\n  \"transactions\": {\n      \"tx_0\": [\n          \"0d299becabd550bc1dccd1b77cd2cd3bd379eb2da7319a2ab293ebd63497ea40\",\n          \"Org1MSP\"\n      ]\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
     "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-latestBlock.js",
     "groupTitle": "Ledger"
   },

@@ -1126,10 +1126,85 @@
     "type": "post",
     "url": "/fabric/testnet/v1.4x/ledger/queryTransactionById",
     "title": "Query a transaction by an id",
-    "description": "<p>Send a transaction to a chaincode deployed on a application channel.</p>",
+    "description": "<p>Query a transaction by an id.</p>",
     "name": "queryTransactionById",
     "group": "Ledger",
     "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>user who is sending a query</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelName",
+            "description": "<p>channel to be queried</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mspId",
+            "description": "<p>organization msp id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "transactionId",
+            "description": "<p>transaction id to be queried</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"samplechannel1\",\n  \"transactionId\": \"0d299becabd550bc1dccd1b77cd2cd3bd379eb2da7319a2ab293ebd63497ea40\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "transaction",
+            "description": "<p>the detailed information about the queried transaction</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"success\": true,\n  \"transaction\": {\n      \"validationCode\": 0,\n      \"transactionEnvelope\": {\n          \"signature\": {\n              \"type\": \"Buffer\",\n              \"data\": [48, 69, 2, 33, ... ]\n          },\n          \"payload\": {\n              \"header\": {\n                  \"channel_header\": {\n                      \"type\": 3,\n                      \"version\": 1,\n                      \"timestamp\": \"2020-08-16T19:00:41.962Z\",\n                      \"channel_id\": \"samplechannel1\",\n                      \"tx_id\": \"0d299becabd550bc1dccd1b77cd2cd3bd379eb2da7319a2ab293ebd63497ea40\",\n                      \"epoch\": \"0\",\n                      \"extension\": {\n                          \"type\": \"Buffer\",\n                          \"data\": [18, 8, 18, 6, ... ]\n                      },\n                      \"typeString\": \"ENDORSER_TRANSACTION\"\n                  },\n                  \"signature_header\": {\n                      \"creator\": {\n                          \"Mspid\": \"Org1MSP\",\n                          \"IdBytes\": \"-----BEGIN CERTIFICATE-----\\nMIICkjCCAjmgAwIBAgIUR4gFIPB5DqbC/VYNRru3b9/RiawwCgYIKoZIzj0EAwIw\\nczELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNh\\nbiBGcmFuY2lzY28xGTAXBgNVBAoTEG9yZzEuZXhhbXBsZS5jb20xHDAaBgNVBAMT\\nE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMjAwODE2MTgxNTAwWhcNMjEwODE2MTgy\\nMDAwWjBEMTAwDQYDVQQLEwZjbGllbnQwCwYDVQQLEwRvcmcxMBIGA1UECxMLZGVw\\nYXJ0bWVudDExEDAOBgNVBAMTB2dpbGJlcnQwWTATBgcqhkjOPQIBBggqhkjOPQMB\\nBwNCAAQIEFbhXWGRGInOLqyds9ZKFVKxhq4Sf6o9kP5RH6ivzDAoBoCoLn5ggETs\\nq/nRAQbhGCwY7g4XzuqKwjtudxSYo4HZMIHWMA4GA1UdDwEB/wQEAwIHgDAMBgNV\\nHRMBAf8EAjAAMB0GA1UdDgQWBBTQa66Hf14SLK54Ko84OIkF5jh3EjArBgNVHSME\\nJDAigCDZ2m02KVrQ3exKFD4U8Z3WYXVP7pAxcBMMZsZfUoru6jBqBggqAwQFBgcI\\nAQReeyJhdHRycyI6eyJoZi5BZmZpbGlhdGlvbiI6Im9yZzEuZGVwYXJ0bWVudDEi\\nLCJoZi5FbnJvbGxtZW50SUQiOiJnaWxiZXJ0IiwiaGYuVHlwZSI6ImNsaWVudCJ9\\nfTAKBggqhkjOPQQDAgNHADBEAiA3aEX+mZ5mJ0rcLFX7KrUzP10ISelfiu0BrYnz\\nahLZ3gIgOPSv4iFpHchfd+GFlPdwE3IbwXqwv+lghyhQns4EegI=\\n-----END CERTIFICATE-----\\n\"\n                      },\n                      \"nonce\": {\n                          \"type\": \"Buffer\",\n                          \"data\": [102, 150, 199, 130, ... ]\n                      }\n                  }\n              },\n              \"data\": {\n                  \"actions\": [\n                      {\n                          \"header\": {\n                              \"creator\": {\n                                  \"Mspid\": \"Org1MSP\",\n                                  \"IdBytes\": \"-----BEGIN CERTIFICATE-----\\nMIICkjCCAjmgAwIBAgIUR4gFIPB5DqbC/VYNRru3b9/RiawwCgYIKoZIzj0EAwIw\\nczELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNh\\nbiBGcmFuY2lzY28xGTAXBgNVBAoTEG9yZzEuZXhhbXBsZS5jb20xHDAaBgNVBAMT\\nE2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMjAwODE2MTgxNTAwWhcNMjEwODE2MTgy\\nMDAwWjBEMTAwDQYDVQQLEwZjbGllbnQwCwYDVQQLEwRvcmcxMBIGA1UECxMLZGVw\\nYXJ0bWVudDExEDAOBgNVBAMTB2dpbGJlcnQwWTATBgcqhkjOPQIBBggqhkjOPQMB\\nBwNCAAQIEFbhXWGRGInOLqyds9ZKFVKxhq4Sf6o9kP5RH6ivzDAoBoCoLn5ggETs\\nq/nRAQbhGCwY7g4XzuqKwjtudxSYo4HZMIHWMA4GA1UdDwEB/wQEAwIHgDAMBgNV\\nHRMBAf8EAjAAMB0GA1UdDgQWBBTQa66Hf14SLK54Ko84OIkF5jh3EjArBgNVHSME\\nJDAigCDZ2m02KVrQ3exKFD4U8Z3WYXVP7pAxcBMMZsZfUoru6jBqBggqAwQFBgcI\\nAQReeyJhdHRycyI6eyJoZi5BZmZpbGlhdGlvbiI6Im9yZzEuZGVwYXJ0bWVudDEi\\nLCJoZi5FbnJvbGxtZW50SUQiOiJnaWxiZXJ0IiwiaGYuVHlwZSI6ImNsaWVudCJ9\\nfTAKBggqhkjOPQQDAgNHADBEAiA3aEX+mZ5mJ0rcLFX7KrUzP10ISelfiu0BrYnz\\nahLZ3gIgOPSv4iFpHchfd+GFlPdwE3IbwXqwv+lghyhQns4EegI=\\n-----END CERTIFICATE-----\\n\"\n                              },\n                              \"nonce\": {\n                                  \"type\": \"Buffer\",\n                                  \"data\": [102, 150, 199, 130, ... ]\n                              }\n                          },\n                          \"payload\": {\n                              \"chaincode_proposal_payload\": {\n                                  \"input\": {\n                                      \"chaincode_spec\": {\n                                          \"type\": 1,\n                                          \"typeString\": \"GOLANG\",\n                                          \"input\": {\n                                              \"args\": [\n                                                  {\n                                                      \"type\": \"Buffer\",\n                                                      \"data\": [\n                                                          115,\n                                                          101,\n                                                          116\n                                                      ]\n                                                  },\n                                                  {\n                                                      \"type\": \"Buffer\",\n                                                      \"data\": [\n                                                          97\n                                                      ]\n                                                  },\n                                                  {\n                                                      \"type\": \"Buffer\",\n                                                      \"data\": [\n                                                          50,\n                                                          48,\n                                                          48\n                                                      ]\n                                                  }\n                                              ],\n                                              \"decorations\": {}\n                                          },\n                                          \"chaincode_id\": {\n                                              \"path\": \"\",\n                                              \"name\": \"mysacc\",\n                                              \"version\": \"\"\n                                          },\n                                          \"timeout\": 0\n                                      }\n                                  }\n                              },\n                              \"action\": {\n                                  \"proposal_response_payload\": {\n                                      \"proposal_hash\": \"021b13735bf16b3626829270fc907b76150aa53fa44b26a7a518405c3e92fcbb\",\n                                      \"extension\": {\n                                          \"results\": {\n                                              \"data_model\": 0,\n                                              \"ns_rwset\": [\n                                                  {\n                                                      \"namespace\": \"lscc\",\n                                                      \"rwset\": {\n                                                          \"reads\": [\n                                                              {\n                                                                  \"key\": \"mysacc\",\n                                                                  \"version\": {\n                                                                      \"block_num\": \"2\",\n                                                                      \"tx_num\": \"0\"\n                                                                  }\n                                                              }\n                                                          ],\n                                                          \"range_queries_info\": [],\n                                                          \"writes\": [],\n                                                          \"metadata_writes\": []\n                                                      },\n                                                      \"collection_hashed_rwset\": []\n                                                  },\n                                                  {\n                                                      \"namespace\": \"mysacc\",\n                                                      \"rwset\": {\n                                                          \"reads\": [],\n                                                          \"range_queries_info\": [],\n                                                          \"writes\": [\n                                                              {\n                                                                  \"key\": \"a\",\n                                                                  \"is_delete\": false,\n                                                                  \"value\": \"200\"\n                                                              }\n                                                          ],\n                                                          \"metadata_writes\": []\n                                                      },\n                                                      \"collection_hashed_rwset\": []\n                                                  }\n                                              ]\n                                          },\n                                          \"events\": {\n                                              \"chaincode_id\": \"\",\n                                              \"tx_id\": \"\",\n                                              \"event_name\": \"\",\n                                              \"payload\": {\n                                                  \"type\": \"Buffer\",\n                                                  \"data\": []\n                                              }\n                                          },\n                                          \"response\": {\n                                              \"status\": 200,\n                                              \"message\": \"\",\n                                              \"payload\": \"200\"\n                                          },\n                                          \"chaincode_id\": {\n                                              \"path\": \"\",\n                                              \"name\": \"mysacc\",\n                                              \"version\": \"1\"\n                                          }\n                                      }\n                                  },\n                                  \"endorsements\": [\n                                      {\n                                          \"endorser\": {\n                                              \"Mspid\": \"Org1MSP\",\n                                              \"IdBytes\": \"-----BEGIN CERTIFICATE-----\\nMIICKDCCAc6gAwIBAgIQJfF5Fvk/Hg9aJQewKcoSNDAKBggqhkjOPQQDAjBzMQsw\\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\\nYW5jaXNjbzEZMBcGA1UEChMQb3JnMS5leGFtcGxlLmNvbTEcMBoGA1UEAxMTY2Eu\\nb3JnMS5leGFtcGxlLmNvbTAeFw0yMDA4MTYxNzU5MDBaFw0zMDA4MTQxNzU5MDBa\\nMGoxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1T\\nYW4gRnJhbmNpc2NvMQ0wCwYDVQQLEwRwZWVyMR8wHQYDVQQDExZwZWVyMC5vcmcx\\nLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZAObn82xAfMQ\\nhXsPkjGCJBLajopy5zGxBKiw14BJG2lNgbCw7F75CPizkoI3Y61HZfbH+CR77VpA\\nidlX5hFdNqNNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1UdEwEB/wQCMAAwKwYDVR0j\\nBCQwIoAg2dptNila0N3sShQ+FPGd1mF1T+6QMXATDGbGX1KK7uowCgYIKoZIzj0E\\nAwIDSAAwRQIhAItGeZ7y9kn/qGsEiR4l3MbYzahrR8cxouLTuMkE2RoiAiAqDaSq\\n2QnIgFHmktO33MMkOAmPt+0lrVhZx/er7ETrJw==\\n-----END CERTIFICATE-----\\n\"\n                                          },\n                                          \"signature\": {\n                                              \"type\": \"Buffer\",\n                                              \"data\": [48, 68, 2, 32, ... ]\n                                          }\n                                      }\n                                  ]\n                              }\n                          }\n                      }\n                  ]\n              }\n          }\n      }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
     "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-transactionById.js",
     "groupTitle": "Ledger"
   },

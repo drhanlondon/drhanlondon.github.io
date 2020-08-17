@@ -202,8 +202,8 @@ define({ "api": [
   {
     "type": "post",
     "url": "/fabric/testnet/v1.4x/channel/queryChannelForBlockHeight",
-    "title": "Query a block hight of a channel",
-    "description": "<p>Send a transaction to a chaincode deployed on a application channel.</p>",
+    "title": "Query a block height of a channel",
+    "description": "<p>Query a block height of a channel and show hash values of the latest block and the previous block.</p>",
     "name": "queryChannelForBlockHeight",
     "group": "Channel",
     "version": "0.1.1",
@@ -215,7 +215,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "userId",
-            "description": "<p>user who is sending a new transaction</p>"
+            "description": "<p>user who is sending a query</p>"
           },
           {
             "group": "Parameter",
@@ -229,28 +229,14 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "channelName",
-            "description": "<p>a channel to which chaincode is deployed</p>"
+            "description": "<p>channel to be queried</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "chaincodeId",
-            "description": "<p>chaincode id which was decided when it was deployed to a channel by command line interface</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "functionName",
-            "description": "<p>function to be invoked</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "functionArgs",
-            "description": "<p>arguments to be passed to the function</p>"
+            "field": "mspId",
+            "description": "<p>organization msp id</p>"
           }
         ]
       },
@@ -276,15 +262,29 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "message",
-            "description": "<p>Explain the result of processing a request</p>"
+            "field": "currentBlockHeight",
+            "description": "<p>the latest blocknumber plus one</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "payload",
-            "description": "<p>transaction response</p>"
+            "field": "currentBlockHash",
+            "description": "<p>hash of the latest block, which is a part of fullCurrentBlockHash</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fullCurrentBlockHash",
+            "description": "<p>full hash of the latest block</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "channelInfo",
+            "description": "<p>more info of the current block and the previous block</p>"
           }
         ]
       },

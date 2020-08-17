@@ -553,11 +553,86 @@
   {
     "type": "post",
     "url": "/fabric/testnet/v1.4x/channel/queryPeerForGossip",
-    "title": "Query peer nodes to which a target peer node is connected for a gossip protocol",
-    "description": "<p>Send a transaction to a chaincode deployed on a application channel.</p>",
+    "title": "Query peers available for gossip",
+    "description": "<p>Query peer nodes to which a target peer node is connected for a gossip protocol. Only the admin of organization is allowed to call it.</p>",
     "name": "queryPeerForGossip",
     "group": "Channel",
     "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>user who is sending a query</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "peerDomainName",
+            "description": "<p>host and domain name of the peer</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mspId",
+            "description": "<p>organization msp id</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"Admin@org1.example.com\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"peerDomainName\": \"peer0.org1.example.com\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "peerURL",
+            "description": "<p>URL and port number of the peer</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "connectedPeersForGossip",
+            "description": "<p>list of chaincodes installed on the peer</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"success\": true,\n  \"peerURL\": \"grpcs://localhost:7051\",\n  \"connectedPeersForGossip\": {\n      \"local_peers\": {\n          \"Org2MSP\": {\n              \"peers\": [\n                  {\n                      \"mspid\": \"Org2MSP\",\n                      \"endpoint\": \"peer0.org2.example.com:9051\"\n                  },\n                  {\n                      \"mspid\": \"Org2MSP\",\n                      \"endpoint\": \"peer1.org2.example.com:10051\"\n                  }\n              ]\n          },\n          \"Org1MSP\": {\n              \"peers\": [\n                  {\n                      \"mspid\": \"Org1MSP\",\n                      \"endpoint\": \"peer0.org1.example.com:7051\"\n                  },\n                  {\n                      \"mspid\": \"Org1MSP\",\n                      \"endpoint\": \"peer1.org1.example.com:8051\"\n                  }\n              ]\n          }\n      }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
     "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-query-peerForGossip.js",
     "groupTitle": "Channel"
   },

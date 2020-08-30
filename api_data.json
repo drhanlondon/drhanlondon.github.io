@@ -96,14 +96,14 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/chaincode/testnet-chaincode-query-transaction.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/chaincode/testnet-chaincode-query-transaction.js",
     "groupTitle": "Chaincode"
   },
   {
     "type": "post",
     "url": "/fabric/testnet/v1.4x/chaincode/sendTransaction",
     "title": "Send a transaction",
-    "description": "<p>Send a transaction to a chaincode deployed on an application channel.</p>",
+    "description": "<p>Send a transaction to a chaincode deployed on a application channel.</p>",
     "name": "sendTransaction",
     "group": "Chaincode",
     "version": "0.1.1",
@@ -196,7 +196,107 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/chaincode/testnet-chaincode-send-transaction.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/chaincode/testnet-chaincode-send-transaction-localhost.js",
+    "groupTitle": "Chaincode"
+  },
+  {
+    "type": "post",
+    "url": "/fabric/testnet/v1.4x/chaincode/sendTransaction",
+    "title": "Send a transaction",
+    "description": "<p>Send a transaction to a chaincode deployed on a application channel.</p>",
+    "name": "sendTransaction",
+    "group": "Chaincode",
+    "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>user who is sending a new transaction</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelName",
+            "description": "<p>a channel to which chaincode is deployed</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "chaincodeId",
+            "description": "<p>chaincode id which was decided when it was deployed to a channel by command line interface</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "functionName",
+            "description": "<p>function to be invoked</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "functionArgs",
+            "description": "<p>arguments to be passed to the function</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"gilbert\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"mychannel\",\n  \"chaincodeId\": \"mycc\",\n  \"functionName\": \"invoke\",\n  \"functionArgs\": [\"a\", \"b\", \"5\"]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Explain the result of processing a request</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "payload",
+            "description": "<p>transaction response</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"success\": true,\n  \"message\": \"the function invoke has been successfully invoked\",\n  \"payload\": \"\",\n  \"transactionId\": \"6b413aea5b704b98efad5c69c24e7a0c6a99fee6c6754a41bd38da4897f927d4\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/chaincode/testnet-chaincode-send-transaction.js",
     "groupTitle": "Chaincode"
   },
   {
@@ -296,7 +396,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-query-channelForBlockHeight.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-query-channelForBlockHeight.js",
     "groupTitle": "Channel"
   },
   {
@@ -375,7 +475,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-query-channelForChaincodes.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-query-channelForChaincodes.js",
     "groupTitle": "Channel"
   },
   {
@@ -461,7 +561,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-query-peerForChaincodes.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-query-peerForChaincodes.js",
     "groupTitle": "Channel"
   },
   {
@@ -547,7 +647,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-query-peerForChannels.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-query-peerForChannels.js",
     "groupTitle": "Channel"
   },
   {
@@ -633,7 +733,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-query-peerForGossip.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-query-peerForGossip.js",
     "groupTitle": "Channel"
   },
   {
@@ -719,7 +819,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-blockByHash.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-blockByHash.js",
     "groupTitle": "Ledger"
   },
   {
@@ -812,7 +912,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-blockByNumber.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-blockByNumber.js",
     "groupTitle": "Ledger"
   },
   {
@@ -905,7 +1005,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-blockByTxId.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-blockByTxId.js",
     "groupTitle": "Ledger"
   },
   {
@@ -1005,7 +1105,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-genesisBlock.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-genesisBlock.js",
     "groupTitle": "Ledger"
   },
   {
@@ -1119,7 +1219,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-latestBlock.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-latestBlock.js",
     "groupTitle": "Ledger"
   },
   {
@@ -1205,7 +1305,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-transactionById.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/ledger/testnet-query-transactionById.js",
     "groupTitle": "Ledger"
   },
   {
@@ -1291,7 +1391,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-enroll-registrar.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-enroll-registrar.js",
     "groupTitle": "MSP"
   },
   {
@@ -1377,7 +1477,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-enroll-user.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-enroll-user.js",
     "groupTitle": "MSP"
   },
   {
@@ -1435,7 +1535,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-export-identity.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-export-identity.js",
     "groupTitle": "MSP"
   },
   {
@@ -1473,7 +1573,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-list-identities.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-list-identities.js",
     "groupTitle": "MSP"
   },
   {
@@ -1566,7 +1666,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-register-user.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-register-user.js",
     "groupTitle": "MSP"
   },
   {
@@ -1624,72 +1724,7 @@
         }
       ]
     },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-remove-identity.js",
-    "groupTitle": "MSP"
-  },
-  {
-    "type": "post",
-    "url": "/fabric/testnet/v1.4x/msp/retrievePeerOrgAdminIdentity",
-    "title": "Retrieve the admin identity of a peer org",
-    "description": "<p>Retrieve the admin identity of a peer organization which was created when a Fabric testnetwork is deployed with crypto materials generated from crytogen tool</p>",
-    "name": "retrievePeerOrgAdminIdentity",
-    "group": "MSP",
-    "version": "0.1.1",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "peerOrgDomainAddress",
-            "description": "<p>The domain address of the peer organization</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "mspId",
-            "description": "<p>The id of MSP(Membership Service Provider) representing the organization</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request Body Example",
-          "content": "{\n  \"peerOrgDomainAddress\": \"org2.example.com\",\n  \"mspId\": \"Org2MSP\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "status",
-            "description": "<p>true/false</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>Explain the result of processing a request</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Response Body Example",
-          "content": "{\n  \"status\": true,\n  \"message\": \"The admin identity of org2.example.com is imported to the wallet successfully\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "/home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-retrieve-peerOrgAdminIdentity.js",
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/msp/testnet-msp-remove-identity.js",
     "groupTitle": "MSP"
   }
 ]

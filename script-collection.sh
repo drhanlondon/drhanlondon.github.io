@@ -11,3 +11,11 @@ apidoc -i /home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-conn
 
 apidoc -i /home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api \
         -o /home/drhan/Dropbox/myWork/overledger-dlt-hyperledger-fabric-1.4x-connector/api-doc
+
+###################################################################
+
+apidoc -i /home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api \
+        -o /home/ubuntu/drhanlondon.github.io
+
+apidoc -i /home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api \
+        -o /home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api-doc

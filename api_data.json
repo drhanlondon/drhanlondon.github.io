@@ -201,6 +201,185 @@
   },
   {
     "type": "post",
+    "url": "/fabric/testnet/v1.4x/channel/createChannel",
+    "title": "Create a channel",
+    "description": "<p>Create a channel, provided that a signable channel definition built from configtx.yaml is passed to the peer organization from the network owner</p>",
+    "name": "createChannel",
+    "group": "Channel",
+    "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>user who is creating a channel. The admin of peer organization is expected to create a channel.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelName",
+            "description": "<p>channel to be created</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mspId",
+            "description": "<p>organization msp id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelConfigTx",
+            "description": "<p>a signable channel definition</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"Admin@org1.example.com\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"mychannel2\",\n  \"channelConfigTx\": \"mychannel2.tx\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>response message</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "channelCreated",
+            "description": "<p>status of the created channel</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"success\": true,\n  \"message\": \"The channel mychannel2 has been created successfully\",\n  \"channelCreated\": {\n      \"status\": \"SUCCESS\",\n      \"info\": \"\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-create-channel.js",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "post",
+    "url": "/fabric/testnet/v1.4x/channel/createChannel",
+    "title": "Join a channel",
+    "description": "<p>Join a channel created by a connector</p>",
+    "name": "joinChannel",
+    "group": "Channel",
+    "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>user who is joining a channel. The admin of peer organization is expected to join a channel.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelName",
+            "description": "<p>channel to be joined</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mspId",
+            "description": "<p>organization msp id</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"Admin@org1.example.com\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"mychannel2\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>response message</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>status of the joined channel</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"success\": true,\n  \"message\": \"successfully joined the channel mychannel2\",\n  \"result\": [\n      {\n          \"version\": 0,\n          \"timestamp\": null,\n          \"response\": {\n              \"status\": 200,\n              \"message\": \"\",\n              \"payload\": {\n                  \"type\": \"Buffer\",\n                  \"data\": []\n              }\n          },\n          \"payload\": {\n              \"type\": \"Buffer\",\n              \"data\": []\n          },\n          \"endorsement\": null,\n          \"peer\": {\n              \"url\": \"grpcs://52.211.81.230:7051\",\n              \"name\": \"peer0.org1.example.com\",\n              \"options\": {\n                  \"grpc.max_receive_message_length\": -1,\n                  \"grpc.max_send_message_length\": -1,\n                  \"grpc.keepalive_time_ms\": 120000,\n                  \"grpc.http2.min_time_between_pings_ms\": 120000,\n                  \"grpc.keepalive_timeout_ms\": 20000,\n                  \"grpc.http2.max_pings_without_data\": 0,\n                  \"grpc.keepalive_permit_without_calls\": 1,\n                  \"name\": \"peer0.org1.example.com\",\n                  \"hostnameOverride\": \"peer0.org1.example.com\",\n                  \"request-timeout\": 300000,\n                  \"grpc.ssl_target_name_override\": \"peer0.org1.example.com\",\n                  \"grpc.default_authority\": \"peer0.org1.example.com\"\n              }\n          }\n      }\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/channel/testnet-join-channel.js",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "post",
     "url": "/fabric/testnet/v1.4x/channel/queryChannelForBlockHeight",
     "title": "Query a block height of a channel",
     "description": "<p>Query a block height of a channel and show hash values of the latest block and the previous block.</p>",

@@ -389,7 +389,7 @@ define({ "api": [
     "type": "post",
     "url": "/fabric/testnet/v1.4x/channel/createChannel",
     "title": "Create a channel",
-    "description": "<p>Create a channel, provided that a signable channel definition built from configtx.yaml is passed to the peer organization from the network owner</p>",
+    "description": "<p>Create a channel, given that a signable channel definition is created with configtx.yaml</p>",
     "name": "createChannel",
     "group": "Channel",
     "version": "0.1.1",

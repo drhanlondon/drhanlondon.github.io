@@ -57,7 +57,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"gilbert\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"mychannel\",\n  \"chaincodeId\": \"mycc\",\n  \"functionName\": \"query\",\n  \"functionArgs\": [\"a\"]\n}",
+          "content": "{\n  \"userId\": \"gilbert\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"mychannel\",\n  \"chaincodeId\": \"mycc\",\n  \"functionName\": \"query\",\n  \"functionArgs\": [\"a\"]\n}",
           "type": "json"
         }
       ]
@@ -157,7 +157,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"gilbert\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"mychannel\",\n  \"chaincodeId\": \"mycc\",\n  \"functionName\": \"invoke\",\n  \"functionArgs\": [\"a\", \"b\", \"5\"]\n}",
+          "content": "{\n  \"userId\": \"gilbert\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"mychannel\",\n  \"chaincodeId\": \"mycc\",\n  \"functionName\": \"invoke\",\n  \"functionArgs\": [\"a\", \"b\", \"5\"]\n}",
           "type": "json"
         }
       ]
@@ -198,6 +198,192 @@ define({ "api": [
     },
     "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/chaincode/testnet-chaincode-send-transaction.js",
     "groupTitle": "Chaincode"
+  },
+  {
+    "type": "post",
+    "url": "/fabric/testnet/v1.4x/channel/createChannel",
+    "title": "Create a channel",
+    "description": "<p>Create a channel, provided that a signable channel definition built from configtx.yaml is passed to the peer organization from the network owner</p>",
+    "name": "createChannel",
+    "group": "Channel",
+    "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>user who is creating a channel. The admin of peer organization is expected to create a channel.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelName",
+            "description": "<p>channel to be created</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mspId",
+            "description": "<p>organization msp id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelConfigTx",
+            "description": "<p>a signable channel definition</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"Admin@org1.example.com\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"mychannel2\",\n  \"channelConfigTx\": \"mychannel2.tx\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>response message</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "channelCreated",
+            "description": "<p>status of the created channel</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"success\": true,\n  \"message\": \"The channel mychannel2 has been created successfully\",\n  \"channelCreated\": {\n      \"status\": \"SUCCESS\",\n      \"info\": \"\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/chaincode/testnet-chaincode-install.js",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "post",
+    "url": "/fabric/testnet/v1.4x/channel/createChannel",
+    "title": "Create a channel",
+    "description": "<p>Create a channel, provided that a signable channel definition built from configtx.yaml is passed to the peer organization from the network owner</p>",
+    "name": "createChannel",
+    "group": "Channel",
+    "version": "0.1.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>user who is creating a channel. The admin of peer organization is expected to create a channel.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "connectionProfileJSON",
+            "description": "<p>file which will be used to navigate one of peer nodes in an organization</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelName",
+            "description": "<p>channel to be created</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mspId",
+            "description": "<p>organization msp id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "channelConfigTx",
+            "description": "<p>a signable channel definition</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Body Example",
+          "content": "{\n  \"userId\": \"Admin@org1.example.com\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"mychannel2\",\n  \"channelConfigTx\": \"mychannel2.tx\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>true/false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>response message</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "channelCreated",
+            "description": "<p>status of the created channel</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response Body Example",
+          "content": "{\n  \"success\": true,\n  \"message\": \"The channel mychannel2 has been created successfully\",\n  \"channelCreated\": {\n      \"status\": \"SUCCESS\",\n      \"info\": \"\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "/home/ubuntu/overledger-dlt-hyperledger-fabric-1.4x-connector/api/chaincode/testnet-chaincode-instantiate.js",
+    "groupTitle": "Channel"
   },
   {
     "type": "post",
@@ -422,7 +608,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"samplechannel1\"\n}",
+          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"samplechannel1\"\n}",
           "type": "json"
         }
       ]
@@ -522,7 +708,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"samplechannel1\"\n}",
+          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"samplechannel1\"\n}",
           "type": "json"
         }
       ]
@@ -601,7 +787,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"Admin@org1.example.com\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"peerDomainName\": \"peer0.org1.example.com\"\n }",
+          "content": "{\n  \"userId\": \"Admin@org1.example.com\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"peerDomainName\": \"peer0.org1.example.com\"\n }",
           "type": "json"
         }
       ]
@@ -687,7 +873,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"peerDomainName\": \"peer0.org1.example.com\"\n}",
+          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"peerDomainName\": \"peer0.org1.example.com\"\n}",
           "type": "json"
         }
       ]
@@ -773,7 +959,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"Admin@org1.example.com\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"peerDomainName\": \"peer0.org1.example.com\"\n }",
+          "content": "{\n  \"userId\": \"Admin@org1.example.com\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"peerDomainName\": \"peer0.org1.example.com\"\n }",
           "type": "json"
         }
       ]
@@ -866,7 +1052,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"samplechannel1\",\n  \"blockHash\": \"149e2d0ef97f5b5b749a2a2dc0da1ece3aa4ab9d8b295eee55cda3a53aec2fdf\"\n}",
+          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"samplechannel1\",\n  \"blockHash\": \"149e2d0ef97f5b5b749a2a2dc0da1ece3aa4ab9d8b295eee55cda3a53aec2fdf\"\n}",
           "type": "json"
         }
       ]
@@ -952,7 +1138,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"samplechannel1\",\n  \"blockNumber\": 3\n}",
+          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"samplechannel1\",\n  \"blockNumber\": 3\n}",
           "type": "json"
         }
       ]
@@ -1045,7 +1231,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"samplechannel1\",\n  \"transactionId\": \"0d299becabd550bc1dccd1b77cd2cd3bd379eb2da7319a2ab293ebd63497ea40\"\n}",
+          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"samplechannel1\",\n  \"transactionId\": \"0d299becabd550bc1dccd1b77cd2cd3bd379eb2da7319a2ab293ebd63497ea40\"\n}",
           "type": "json"
         }
       ]
@@ -1131,7 +1317,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"samplechannel1\"\n}",
+          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"samplechannel1\"\n}",
           "type": "json"
         }
       ]
@@ -1231,7 +1417,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"samplechannel1\"\n}",
+          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"samplechannel1\"\n}",
           "type": "json"
         }
       ]
@@ -1352,7 +1538,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Body Example",
-          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1-peer0.json\",\n  \"channelName\": \"samplechannel1\",\n  \"transactionId\": \"0d299becabd550bc1dccd1b77cd2cd3bd379eb2da7319a2ab293ebd63497ea40\"\n}",
+          "content": "{\n  \"userId\": \"peter\",\n  \"mspId\": \"Org1MSP\",\n  \"connectionProfileJSON\": \"connection-org1.json\",\n  \"channelName\": \"samplechannel1\",\n  \"transactionId\": \"0d299becabd550bc1dccd1b77cd2cd3bd379eb2da7319a2ab293ebd63497ea40\"\n}",
           "type": "json"
         }
       ]
